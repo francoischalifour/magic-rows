@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="logo.svg" width="360" alt="magic-rows">
+  <img src="http://imgh.us/logo_363.svg" width="360" alt="magic-rows">
 </h1>
 
 <p align="center">
