@@ -10,8 +10,8 @@ const plugins = []
 const libraryName = pkg.name
 const banner = `
    ${libraryName} - ${pkg.description}
+   Version: ${pkg.version}
    Author: ${pkg.author.name}
-   Version: v${pkg.version}
    Url: https://github.com/${pkg.repository}
    License: ${pkg.license}
 `

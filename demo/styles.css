@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Work Sans', sans-serif;
   text-rendering: optimizeLegibility;
@@ -61,9 +65,8 @@ button:active {
  */
 
 .container {
-  width: 95%;
-  max-width: 900px;
-  margin: 48px auto;
+  width: 100%;
+  padding: 48px 16px;
 }
 
 /*

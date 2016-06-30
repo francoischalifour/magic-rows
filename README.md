@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="http://imgh.us/magic-rows-logo.svg" width="360" alt="magic-rows">
+  <img src="https://camo.githubusercontent.com/2abc63dee5dfa2f7a151e34bb93ae1225c1f430f/687474703a2f2f696d67682e75732f6d616769632d726f77732d6c6f676f2e737667" width="360" alt="magic-rows">
 </h1>
 
 <p align="center">
@@ -100,19 +100,19 @@ Will generate:
   data-format-name="email-@"
   data-format-placeholder="Friend's #$ email"
 >
-  <input type="mail" id="friend-1" name="friend-A" placeholder="Enter your friends' email">
+  <input type="mail" id="email-1" name="email-A" placeholder="Enter your friends' email">
 
-  <button>Play</button>
+  <button>Send</button>
 </form>
 ```
 
 Will generate:
 
 ```html
-<input type="mail" id="email-1" name="email-A" placeholder="Enter your friends's email">
-<input type="mail" id="email-2" name="email-B" placeholder="Friend #2">
-<input type="mail" id="email-3" name="email-C" placeholder="Friend #3">
-<input type="mail" id="email-4" name="email-D" placeholder="Friend #4">
+<input type="mail" id="email-1" name="email-A" placeholder="Enter your friends' email">
+<input type="mail" id="email-2" name="email-B" placeholder="Friend's #2 email">
+<input type="mail" id="email-3" name="email-C" placeholder="Friend's #3 email">
+<input type="mail" id="email-4" name="email-D" placeholder="Friend's #4 email">
 ```
 
 ## Demo

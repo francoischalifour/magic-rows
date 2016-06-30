@@ -101,10 +101,8 @@ class MagicRows {
   }
 
   guessNextValue (value) {
-    const noDigits = value.replace(/^\D+/g, '').length
-
     return this.hasNumber(value)
-      ? value.replace(/\d+/g, this.getPatternNumbers(value, noDigits))
+      ? value.replace(/\d+/g, this.getPatternNumbers(value, value.replace(/^\D+/g, '').length))
       : `${value}-${this.noRows}`
   }
 
