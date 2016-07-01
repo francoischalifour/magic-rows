@@ -4,7 +4,7 @@ class MagicRows {
   constructor (form) {
     if (!form) return
 
-    this.rows = Array.from(form.querySelectorAll('input[type="text"], input[type="mail"]'))
+    this.rows = Array.from(form.querySelectorAll('input[type="text"], input[type="email"]'))
 
     this.maxRows = form.dataset.maxRows || 6
     this.placeholderFormat = form.dataset.formatPlaceholder
@@ -20,11 +20,15 @@ class MagicRows {
   }
 
   addEventListeners () {
+    if (!this.lastRow) return
+
     this.lastRow.addEventListener('focus', this.addRow)
     this.lastRow.addEventListener('change', this.addRow)
   }
 
   removeEventListeners () {
+    if (!this.lastRow) return
+
     this.lastRow.removeEventListener('focus', this.addRow)
     this.lastRow.removeEventListener('change', this.addRow)
   }

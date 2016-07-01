@@ -66,7 +66,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    if (!form) return;
 	
-	    this.rows = Array.from(form.querySelectorAll('input[type="text"], input[type="mail"]'));
+	    this.rows = Array.from(form.querySelectorAll('input[type="text"], input[type="email"]'));
 	
 	    this.maxRows = form.dataset.maxRows || 6;
 	    this.placeholderFormat = form.dataset.formatPlaceholder;
@@ -84,12 +84,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(MagicRows, [{
 	    key: 'addEventListeners',
 	    value: function addEventListeners() {
+	      if (!this.lastRow) return;
+	
 	      this.lastRow.addEventListener('focus', this.addRow);
 	      this.lastRow.addEventListener('change', this.addRow);
 	    }
 	  }, {
 	    key: 'removeEventListeners',
 	    value: function removeEventListeners() {
+	      if (!this.lastRow) return;
+	
 	      this.lastRow.removeEventListener('focus', this.addRow);
 	      this.lastRow.removeEventListener('change', this.addRow);
 	    }
@@ -167,9 +171,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'guessNextValue',
 	    value: function guessNextValue(value) {
-	      var noDigits = value.replace(/^\D+/g, '').length;
-	
-	      return this.hasNumber(value) ? value.replace(/\d+/g, this.getPatternNumbers(value, noDigits)) : value + '-' + this.noRows;
+	      return this.hasNumber(value) ? value.replace(/\d+/g, this.getPatternNumbers(value, value.replace(/^\D+/g, '').length)) : value + '-' + this.noRows;
 	    }
 	  }, {
 	    key: 'getLetter',

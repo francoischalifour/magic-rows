@@ -100,7 +100,7 @@ Will generate:
   data-format-name="email-@"
   data-format-placeholder="Friend's #$ email"
 >
-  <input type="mail" id="email-1" name="email-A" placeholder="Enter your friends' email">
+  <input type="email" id="email-1" name="email-A" placeholder="Enter your friends' email">
 
   <button>Send</button>
 </form>
@@ -109,10 +109,10 @@ Will generate:
 Will generate:
 
 ```html
-<input type="mail" id="email-1" name="email-A" placeholder="Enter your friends' email">
-<input type="mail" id="email-2" name="email-B" placeholder="Friend's #2 email">
-<input type="mail" id="email-3" name="email-C" placeholder="Friend's #3 email">
-<input type="mail" id="email-4" name="email-D" placeholder="Friend's #4 email">
+<input type="email" id="email-1" name="email-A" placeholder="Enter your friends' email">
+<input type="email" id="email-2" name="email-B" placeholder="Friend's #2 email">
+<input type="email" id="email-3" name="email-C" placeholder="Friend's #3 email">
+<input type="email" id="email-4" name="email-D" placeholder="Friend's #4 email">
 ```
 
 ## Demo
