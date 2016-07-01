@@ -9,11 +9,11 @@ const env = process.env.NODE_ENV
 const plugins = []
 const libraryName = pkg.name
 const banner = `
-   ${libraryName} - ${pkg.description}
-   Version: ${pkg.version}
-   Author: ${pkg.author.name}
-   Url: https://github.com/${pkg.repository}
-   License: ${pkg.license}
+   ${libraryName} v${pkg.version}
+   ${pkg.description}
+   Copyright (c) 2016 ${pkg.author.name}
+   https://github.com/${pkg.repository}
+   ${pkg.license} license
 `
 
 let outputFile
