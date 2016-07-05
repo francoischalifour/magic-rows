@@ -9,11 +9,11 @@
     "email": "francois.chalifour@gmail.com",
     "url": "http://francoischalifour.com"
   },
-  "main": "index.js",
+  "main": "src/magic-rows.js",
   "scripts": {
-    "lint": "standard",
-    "build": "NODE_ENV=build webpack",
-    "dev": "NODE_ENV=dev webpack --progress --colors --watch"
+    "lint": "./node_modules/.bin/standard",
+    "build": "NODE_ENV=build ./node_modules/.bin/webpack",
+    "dev": "NODE_ENV=dev ./node_modules/.bin/webpack --progress --colors --watch"
   },
   "standard": {
     "ignore": [
