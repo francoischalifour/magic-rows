@@ -3,6 +3,10 @@
 </h1>
 
 <p align="center">
+  <a href="https://www.npmjs.com/package/magic-rows">
+    <img src="https://img.shields.io/npm/v/magic-rows.svg" alt="npm">
+  </a>
+
   <a href="http://standardjs.com/">
     <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" alt="js-standard-style">
   </a>
