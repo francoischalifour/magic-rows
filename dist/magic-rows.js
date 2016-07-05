@@ -166,7 +166,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      var numberGuessed = Number(likelyAttribute.replace(/^\D+/g, '')) + 1;
 	
-	      return !numberGuessed ? this.noRows : numberGuessed;
+	      return numberGuessed;
 	    }
 	  }, {
 	    key: 'guessNextValue',

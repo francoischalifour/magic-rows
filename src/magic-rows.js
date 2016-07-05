@@ -101,7 +101,7 @@ class MagicRows {
 
     const numberGuessed = Number(likelyAttribute.replace(/^\D+/g, '')) + 1
 
-    return !numberGuessed ? this.noRows : numberGuessed
+    return numberGuessed
   }
 
   guessNextValue (value) {
