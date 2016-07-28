@@ -24,7 +24,7 @@
 $ npm install --save magic-rows
 ```
 
-Or download the [minified version](dist/magic-rows.min.js).
+Or download the [minified version](https://raw.githubusercontent.com/francoischalifour/magic-rows/master/dist/magic-rows.min.js).
 
 *No dependencies.*
 
