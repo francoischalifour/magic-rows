@@ -3,7 +3,6 @@ const webpack = require('webpack')
 
 const pkg = require('./package.json')
 
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin
 const env = process.env.NODE_ENV
 
 const plugins = []
@@ -11,17 +10,17 @@ const libraryName = pkg.name
 const banner = `
    ${libraryName} v${pkg.version}
    ${pkg.description}
-   Copyright (c) 2016 ${pkg.author.name}
+   Copyright (c) ${new Date().getFullYear()} ${pkg.author.name}
    https://github.com/${pkg.repository}
    ${pkg.license} license
 `
 
 let outputFile
 
-if (env === 'build') {
-  plugins.push(new UglifyJsPlugin({ minimize: true }))
-  plugins.push(new webpack.BannerPlugin(banner))
+plugins.push(new webpack.BannerPlugin(banner))
 
+if (env === 'build') {
+  plugins.push(new webpack.optimize.UglifyJsPlugin({ minimize: true }))
   outputFile = `${libraryName}.min.js`
 } else {
   outputFile = `${libraryName}.js`
