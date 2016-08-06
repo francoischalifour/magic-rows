@@ -12,9 +12,14 @@
   "main": "src/magic-rows.js",
   "scripts": {
     "lint": "./node_modules/.bin/standard",
-    "build": "NODE_ENV=build ./node_modules/.bin/webpack",
+    "clean": "./node_modules/.bin/rimraf ./dist && mkdir dist",
+    "prebuild": "npm run lint && npm run clean",
+    "build": "NODE_ENV=build ./node_modules/.bin/webpack && NODE_ENV=dev ./node_modules/.bin/webpack",
     "dev": "NODE_ENV=dev ./node_modules/.bin/webpack --progress --colors --watch"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "standard": {
     "ignore": [
       "/dist/"
