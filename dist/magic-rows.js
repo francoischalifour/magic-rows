@@ -1,3 +1,12 @@
+/*!
+ * 
+ *    magic-rows v1.0.2
+ *    Adds rows to your forms automagically
+ *    Copyright (c) 2016 Francois Chalifour
+ *    https://github.com/francoischalifour/magic-rows
+ *    MIT license
+ * 
+ */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -58,6 +67,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var MagicRows = function () {
@@ -66,7 +77,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    if (!form) return;
 	
-	    this.rows = Array.from(form.querySelectorAll('input[type="text"], input[type="email"]'));
+	    this.rows = [].concat(_toConsumableArray(form.querySelectorAll('input[type="text"], input[type="email"]')));
 	
 	    this.maxRows = form.dataset.maxRows || 6;
 	    this.placeholderFormat = form.dataset.formatPlaceholder;
@@ -151,7 +162,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (format) {
 	        return format.includes('$') ? format.replace(/\$+/g, this.getPatternNumbers(format, format.split('$').length - 1)) : format.includes('@') ? format.replace('@', this.getLetter(this.guessNextPatternNumber())) : this.guessNextValue(value);
 	      } else {
-	        return this.guessNextValue(value);
+	        return this.guessNextValue(value, true);
 	      }
 	    }
 	  }, {
@@ -170,8 +181,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, {
 	    key: 'guessNextValue',
-	    value: function guessNextValue(value) {
-	      return this.hasNumber(value) ? value.replace(/\d+/g, this.getPatternNumbers(value, value.replace(/^\D+/g, '').length)) : value + '-' + this.noRows;
+	    value: function guessNextValue(value, detection) {
+	      return detection ? value.replace(/\d+/g, function (n) {
+	        return ++n;
+	      }) : this.hasNumber(value) ? value.replace(/\d+/g, this.getPatternNumbers(value, value.replace(/^\D+/g, '').length)) : value + '-' + this.noRows;
 	    }
 	  }, {
 	    key: 'getLetter',
@@ -190,7 +203,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}();
 	
 	window.addEventListener('load', function () {
-	  Array.from(document.querySelectorAll('[data-action="magic-rows"]')).forEach(function (form) {
+	  [].concat(_toConsumableArray(document.querySelectorAll('[data-action="magic-rows"]'))).forEach(function (form) {
 	    return new MagicRows(form);
 	  });
 	});

@@ -1,10 +1,8 @@
-'use strict'
-
 class MagicRows {
   constructor (form) {
     if (!form) return
 
-    this.rows = Array.from(form.querySelectorAll('input[type="text"], input[type="email"]'))
+    this.rows = [...form.querySelectorAll('input[type="text"], input[type="email"]')]
 
     this.maxRows = form.dataset.maxRows || 6
     this.placeholderFormat = form.dataset.formatPlaceholder
@@ -85,7 +83,7 @@ class MagicRows {
           ? format.replace('@', this.getLetter(this.guessNextPatternNumber()))
           : this.guessNextValue(value)
     } else {
-      return this.guessNextValue(value)
+      return this.guessNextValue(value, true)
     }
   }
 
@@ -104,10 +102,12 @@ class MagicRows {
     return numberGuessed
   }
 
-  guessNextValue (value) {
-    return this.hasNumber(value)
-      ? value.replace(/\d+/g, this.getPatternNumbers(value, value.replace(/^\D+/g, '').length))
-      : `${value}-${this.noRows}`
+  guessNextValue (value, detection) {
+    return detection
+      ? value.replace(/\d+/g, n => ++n)
+      : this.hasNumber(value)
+        ? value.replace(/\d+/g, this.getPatternNumbers(value, value.replace(/^\D+/g, '').length))
+        : `${value}-${this.noRows}`
   }
 
   getLetter (number) {
@@ -120,6 +120,6 @@ class MagicRows {
 }
 
 window.addEventListener('load', () => {
-  Array.from(document.querySelectorAll('[data-action="magic-rows"]'))
+  [...document.querySelectorAll('[data-action="magic-rows"]')]
     .forEach(form => new MagicRows(form))
 })
